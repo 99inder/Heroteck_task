@@ -14,7 +14,12 @@ connectToDB();
 // applying middlewares
 app.use(bodyParser.json()); //  middleware to parse body data
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());    // allowing all origins to access the server
+app.use(
+    cors({
+        origin: "*",
+        credentials: true,
+    })
+);    // allowing all origins to access the server
 
 // form route import
 app.use('/api/form', formRoutes);
